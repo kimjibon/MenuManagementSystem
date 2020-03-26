@@ -31,7 +31,6 @@ public class MenuManager {
 				continue;
 			}
 		}
-		System.out.println("Program End");
 	}
 	public static void addMenu() {
 		Scanner input = new Scanner(System.in);
