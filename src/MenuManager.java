@@ -2,11 +2,11 @@ import java.util.Scanner;
 
 public class MenuManager {
 	public static void main(String[] arguments) {
-		
+
 		Scanner input = new Scanner(System.in);
-        Menumanager2 menumanager2 = new Menumanager2(input);	
-		
-        int num = 8;
+		Menumanager2 menumanager2 = new Menumanager2(input);	
+
+		int num = 8;
 		while (num !=5){
 			System.out.println(" *** Menu Management System Menu *** ");
 			System.out.println(" 1. Add Menu");
