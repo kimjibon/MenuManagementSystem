@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Menu {
 
+	
 	protected MenuKind kind= MenuKind.Coldnoodle;
 	protected String name;
 	protected int price;

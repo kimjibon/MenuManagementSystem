@@ -6,6 +6,7 @@ public class Menumanager2 {
 	ArrayList<Menu> menus = new ArrayList<Menu>();
 	Scanner input;
 
+	
 	Menumanager2(Scanner input){
 		this.input = input;
 	} 

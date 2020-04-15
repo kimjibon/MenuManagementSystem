@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class HotNoodle extends Menu {
 
+	
 	public void getUserInput(Scanner input) {
 
 		System.out.print("Menu Name : ");

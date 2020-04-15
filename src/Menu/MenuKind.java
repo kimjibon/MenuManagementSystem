@@ -6,4 +6,5 @@ public enum MenuKind {
 	Rice,
 	Cutlet
 
+	
 }

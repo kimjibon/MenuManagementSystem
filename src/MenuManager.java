@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class MenuManager {
 	public static void main(String[] arguments) {
 
+		
 		Scanner input = new Scanner(System.in);
 		Menumanager2 menumanager2 = new Menumanager2(input);	
 
