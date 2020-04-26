@@ -3,6 +3,10 @@ package Menu;
 import java.util.Scanner;
 
 public class HotNoodle extends Menu {
+	
+	public HotNoodle(MenuKind kind) {
+		super(kind);
+	}
 
 	
 	public void getUserInput(Scanner input) {

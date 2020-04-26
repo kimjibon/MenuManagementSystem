@@ -15,6 +15,11 @@ public class Menu {
 	public Menu() {
 
 	}
+	
+	public Menu(MenuKind kind) {
+		this.kind=kind;
+
+	}
 
 	public Menu(String name, int price) {
 		this.name= name;
@@ -22,7 +27,14 @@ public class Menu {
 
 	}
 	public Menu (String name, int price, String intro, String ing) {
-		super();
+		this.name = name;
+		this.price = price;
+		this.intro = intro;
+		this.ing = ing;
+	}
+	
+	public Menu (MenuKind kind, String name, int price, String intro, String ing) {
+		this.kind=kind;
 		this.name = name;
 		this.price = price;
 		this.intro = intro;
@@ -35,6 +47,7 @@ public class Menu {
 	public void setKind(MenuKind kind) {
 		this.kind = kind;
 	}
+	
 
 	public String getName() {
 		return name;
@@ -68,8 +81,26 @@ public class Menu {
 		this.ing = ing;
 	}
 
+
 	public void printInfo() {
-		System.out.println("menu: "+ name + "  price: " + price + "  intro: " + intro + "  ingredient: " + ing);
+		String skind = "none";
+		switch(this.kind) {
+		case Coldnoodle:
+			skind = "Coldnoodle";
+			break;
+		case Hotnoodle:
+			skind = "Hotnoodle";
+			break;
+		case Rice:
+			skind = "Rice";
+			break;
+		case Cutlet:
+			skind = "Cutlet";
+			break;
+		default:
+			
+		}
+		System.out.println("kind : "+ skind +"menu: "+ name + "  price: " + price + "  intro: " + intro + "  ingredient: " + ing);
 	}
 	
 	public void getUserInput(Scanner input) {

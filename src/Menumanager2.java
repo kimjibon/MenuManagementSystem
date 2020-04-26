@@ -1,5 +1,8 @@
 import Menu.HotNoodle;
+import Menu.Cutlet;
 import Menu.Menu;
+import Menu.MenuKind;
+
 import java.util.*;
 
 public class Menumanager2 {	
@@ -17,17 +20,24 @@ public class Menumanager2 {
 		while (kind!=1 && kind!=2) {
 			System.out.println("1 for ColdNoodle");
 			System.out.println("2 for HotNoodle");
-			System.out.print("Select num for Menu Kind between 1 and 2 : ");
+			System.out.println("3 for Cutlet");
+			System.out.print("Select num 1,2 or 3 for Menu Kind : ");
 			kind = input.nextInt();
 			if (kind==1) {
-				menu = new Menu();
+				menu = new Menu(MenuKind.Coldnoodle);
 				menu.getUserInput(input);
 				menus.add(menu);
 				break;
 
 			}
 			else if(kind==2) {
-				menu = new HotNoodle();
+				menu = new HotNoodle(MenuKind.Hotnoodle);
+				menu.getUserInput(input);
+				menus.add(menu);
+				break;
+			}
+			else if(kind==3) {
+				menu = new Cutlet(MenuKind.Cutlet);
 				menu.getUserInput(input);
 				menus.add(menu);
 				break;
