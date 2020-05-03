@@ -18,7 +18,7 @@ public class ColdNoodle extends Menu{
 	
 	public void printInfo() {
 		String skind = getKindString();
-		System.out.println("kind : "+ skind +"menu: "+ name + "  price: " + price + "  intro: " + intro + "  ingredient: " + ing);
+		System.out.println("kind : "+ skind +" menu: "+ name + "  price: " + price + "  introduce : " + intro + "  ingredient: " + ing);
 	}
 
 }

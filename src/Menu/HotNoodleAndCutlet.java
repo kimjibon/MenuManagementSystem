@@ -12,7 +12,7 @@ public abstract class HotNoodleAndCutlet extends Menu {
 	
 	public void printInfo() {
 		String skind = getKindString();
-		System.out.println("kind : "+ skind +"menu: "+ name + "  price: " + price + "  intro: " + intro + "  ingredient: " + ing);
+		System.out.println("kind : "+ skind +" menu: "+ name + "  price: " + price + "  introduce : " + intro + "  ingredient: " + ing);
 	}
 		
 	public void setMenuIntroWithYN(Scanner input) {
@@ -20,14 +20,33 @@ public abstract class HotNoodleAndCutlet extends Menu {
 		while(answer!='Y'&&answer!='y'&&answer!='n'&&answer!='N') {
 			System.out.print("Does this menu have an introduce? (Y/N)" );
 			answer = input.next().charAt(0);
+			input.nextLine();
 			if (answer =='y'|| answer == 'Y') {
-				System.out.print("Menu Introduce : ");
-				String intro = input.nextLine();
-				this.setIntro(intro);
+				setMenuIntro(input);
 				break;
 			}
 			else if (answer =='n'|| answer == 'N') {
 				this.setIntro("X");
+				break;
+			}
+			else {
+			}
+		}
+	}
+	
+	public void setMenuOriginWithYN(Scanner input) {
+		char answer2 = 'x';
+		while(answer2!='Y'&&answer2!='y'&&answer2!='n'&&answer2!='N') {
+			System.out.print("Does this menu have origin information? (Y/N)" );
+			answer2 = input.next().charAt(0);
+			input.nextLine();
+			if (answer2 =='y'|| answer2 == 'Y') {
+				setMenuOrigin(input);
+				break;
+			}
+			else if (answer2 =='n'|| answer2 == 'N') {
+				String origin ="X";
+				this.setOrigin(origin);
 				break;
 			}
 			else {

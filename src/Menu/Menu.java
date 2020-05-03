@@ -10,7 +10,7 @@ public abstract class Menu implements MenuInput {
 	protected int price;
 	protected String intro;
 	protected String ing;
-
+	protected String origin;
 
 	public Menu() {
 
@@ -79,6 +79,15 @@ public abstract class Menu implements MenuInput {
 	public void setIng(String ing) {
 		this.ing = ing;
 	}
+	
+
+	public String getOrigin() {
+		return origin;
+	}
+	
+	public void setOrigin(String origin) {
+		this.origin= origin;
+	}
 
 	public abstract void printInfo(); 
 	
@@ -93,6 +102,7 @@ public abstract class Menu implements MenuInput {
 		System.out.print("Menu Price : ");
 		int price = input.nextInt();
 		this.setPrice(price);
+		input.nextLine();
 	}
 
 	public void setMenuIntro(Scanner input) {
@@ -105,6 +115,12 @@ public abstract class Menu implements MenuInput {
 		System.out.print("ingredient : ");
 		String ing = input.nextLine();	
 		this.setIng(ing);
+	}
+	
+	public void setMenuOrigin(Scanner input) {
+		System.out.print("ingredient Origin : ");
+		String origin = input.nextLine();
+		this.setOrigin(origin);
 	}
 	
 	public String getKindString() {

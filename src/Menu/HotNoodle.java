@@ -12,7 +12,6 @@ public class HotNoodle extends HotNoodleAndCutlet{
 		setMenuName(input);
 		setMenuPrice(input);
 		setMenuIntroWithYN(input);
-		input.nextLine();
 		setMenuIng(input);
 	}
 }

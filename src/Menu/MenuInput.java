@@ -25,4 +25,6 @@ public interface MenuInput {
 	public void setMenuIntro(Scanner input);
 	
 	public void setMenuIng(Scanner input);
+	
+	public void setMenuOrigin(Scanner input);
 }
