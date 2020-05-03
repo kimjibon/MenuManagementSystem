@@ -2,7 +2,7 @@ package Menu;
 
 import java.util.Scanner;
 
-public class Menu {
+public abstract class Menu implements MenuInput {
 
 	
 	protected MenuKind kind= MenuKind.Coldnoodle;
@@ -48,7 +48,6 @@ public class Menu {
 		this.kind = kind;
 	}
 	
-
 	public String getName() {
 		return name;
 	}
@@ -81,8 +80,34 @@ public class Menu {
 		this.ing = ing;
 	}
 
+	public abstract void printInfo(); 
+	
 
-	public void printInfo() {
+	public void setMenuName( Scanner input) {
+		System.out.print("Menu Name : ");
+		String name = input.next();
+		this.setName(name);
+	}
+
+	public void setMenuPrice(Scanner input) {
+		System.out.print("Menu Price : ");
+		int price = input.nextInt();
+		this.setPrice(price);
+	}
+
+	public void setMenuIntro(Scanner input) {
+		System.out.print("Menu Introduce : ");
+		String intro = input.nextLine();
+		this.setIntro(intro);
+	}
+
+	public void setMenuIng(Scanner input) {
+		System.out.print("ingredient : ");
+		String ing = input.nextLine();	
+		this.setIng(ing);
+	}
+	
+	public String getKindString() {
 		String skind = "none";
 		switch(this.kind) {
 		case Coldnoodle:
@@ -98,29 +123,8 @@ public class Menu {
 			skind = "Cutlet";
 			break;
 		default:
-			
 		}
-		System.out.println("kind : "+ skind +"menu: "+ name + "  price: " + price + "  intro: " + intro + "  ingredient: " + ing);
+		return skind;
 	}
-	
-	public void getUserInput(Scanner input) {
-		
-		System.out.print("Menu Name : ");
-		String name = input.next();
-		this.setName(name);
-		
-		System.out.print("Menu Price : ");
-		int price = input.nextInt();
-		input.nextLine();
-		this.setPrice(price);
-		
-		System.out.print("Menu Introduce : ");
-		String intro = input.nextLine();
-		this.setIntro(intro);
-		
-		System.out.print("ingredient : ");
-		String ing = input.nextLine();
-		this.setIng(ing);
-		
-	}
+
 }
