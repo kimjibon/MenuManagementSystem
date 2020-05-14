@@ -18,32 +18,39 @@ public class Menumanager2 {
 	public void addMenu() {
 		int kind = 0;
 		MenuInput menuInput;
-		while (kind!=1 && kind!=2) {
-			System.out.println("1 for ColdNoodle");
-			System.out.println("2 for HotNoodle");
-			System.out.println("3 for Cutlet");
-			System.out.print("Select num 1,2 or 3 for Menu Kind : ");
-			kind = input.nextInt();
-			if (kind==1) {
-				menuInput = new ColdNoodle(MenuKind.Coldnoodle);
-				menuInput.getUserInput(input);
-				menus.add(menuInput);
-				break;
-			}
-			else if(kind==2) {
-				menuInput = new HotNoodle(MenuKind.Hotnoodle);
-				menuInput.getUserInput(input);
-				menus.add(menuInput);
-				break;
-			}
-			else if(kind==3) {
-				menuInput = new Cutlet(MenuKind.Cutlet);
-				menuInput.getUserInput(input);
-				menus.add(menuInput);
-				break;
-			}
-			else {
-				System.out.print("Select num for Menu Kind between 1 and 2: ");
+		while (kind < 1  || kind > 3) {
+			try {
+				System.out.println("1 for ColdNoodle");
+				System.out.println("2 for HotNoodle");
+				System.out.println("3 for Cutlet");
+				System.out.print("Select num 1,2 or 3 for Menu Kind : ");
+				kind = input.nextInt();
+				if (kind==1) {
+					menuInput = new ColdNoodle(MenuKind.Coldnoodle);
+					menuInput.getUserInput(input);
+					menus.add(menuInput);
+					break;
+				}
+				else if(kind==2) {
+					menuInput = new HotNoodle(MenuKind.Hotnoodle);
+					menuInput.getUserInput(input);
+					menus.add(menuInput);
+					break;
+				}
+				else if(kind==3) {
+					menuInput = new Cutlet(MenuKind.Cutlet);
+					menuInput.getUserInput(input);
+					menus.add(menuInput);
+					break;
+				}
+				else {
+					System.out.print("Select num for Menu Kind between 1 and 2: ");
+				}}
+			catch(InputMismatchException e) {
+				System.out.println("Please put an integer between 1 and 3!");
+				if (input.hasNext()) {
+					input.next();}
+				kind = -1;
 			}
 		}		
 	}
@@ -54,7 +61,7 @@ public class Menumanager2 {
 		int index = findIndex(Menuname);
 		removefromMenu(index, Menuname);
 	}
-	
+
 	public int findIndex(String Menuname) {
 		int index = -1;
 		for(int i=0 ; i <menus.size();i++) {
@@ -65,7 +72,7 @@ public class Menumanager2 {
 		}
 		return index;
 	}
-	
+
 	public int removefromMenu(int index, String Menuname) {
 		if (index >=0) {
 			menus.remove(index);

@@ -2,6 +2,8 @@ package Menu;
 
 import java.util.Scanner;
 
+import exception.IntroFormatException;
+
 public abstract class HotNoodleAndCutlet extends Menu {
 
 	public HotNoodleAndCutlet(MenuKind kind) {
@@ -21,15 +23,20 @@ public abstract class HotNoodleAndCutlet extends Menu {
 			System.out.print("Does this menu have an introduce? (Y/N)" );
 			answer = input.next().charAt(0);
 			input.nextLine();
-			if (answer =='y'|| answer == 'Y') {
-				setMenuIntro(input);
-				break;
+			try {
+				if (answer =='y'|| answer == 'Y') {
+					setMenuIntro(input);
+					break;
+				}
+				else if (answer =='n'|| answer == 'N') {
+					this.setIntro("");
+					break;
+				}
+				else {
+				}
 			}
-			else if (answer =='n'|| answer == 'N') {
-				this.setIntro("X");
-				break;
-			}
-			else {
+			catch(IntroFormatException e) {
+				System.out.println("Incorrect Intro Format. put the intro that contailns ¸ÀÀÕ¾î¿ä");
 			}
 		}
 	}

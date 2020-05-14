@@ -2,6 +2,8 @@ package Menu;
 
 import java.util.Scanner;
 
+import exception.IntroFormatException;
+
 public interface MenuInput {
 	
 	public void getUserInput(Scanner input);
@@ -12,7 +14,7 @@ public interface MenuInput {
 	
 	public void setPrice(int price);
 	
-	public void setIntro(String intro);
+	public void setIntro(String intro) throws IntroFormatException;
 	
 	public void setIng(String ing);
 	

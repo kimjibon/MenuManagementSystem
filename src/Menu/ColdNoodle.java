@@ -8,8 +8,7 @@ public class ColdNoodle extends Menu{
 		super(kind);
 	}
 	
-	public void getUserInput(Scanner input) {
-		
+	public void getUserInput(Scanner input) {		
 		setMenuName(input);
 		setMenuPrice(input);
 		setMenuIntro(input);

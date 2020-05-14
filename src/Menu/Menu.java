@@ -2,9 +2,11 @@ package Menu;
 
 import java.util.Scanner;
 
+import exception.IntroFormatException;
+
 public abstract class Menu implements MenuInput {
 
-	
+
 	protected MenuKind kind= MenuKind.Coldnoodle;
 	protected String name;
 	protected int price;
@@ -15,7 +17,7 @@ public abstract class Menu implements MenuInput {
 	public Menu() {
 
 	}
-	
+
 	public Menu(MenuKind kind) {
 		this.kind=kind;
 
@@ -32,7 +34,7 @@ public abstract class Menu implements MenuInput {
 		this.intro = intro;
 		this.ing = ing;
 	}
-	
+
 	public Menu (MenuKind kind, String name, int price, String intro, String ing) {
 		this.kind=kind;
 		this.name = name;
@@ -47,7 +49,7 @@ public abstract class Menu implements MenuInput {
 	public void setKind(MenuKind kind) {
 		this.kind = kind;
 	}
-	
+
 	public String getName() {
 		return name;
 	}
@@ -68,7 +70,11 @@ public abstract class Menu implements MenuInput {
 		return intro;
 	}
 
-	public void setIntro(String intro) {
+	public void setIntro(String intro) throws IntroFormatException{
+		if(!intro.contains("¸ÀÀÖ¾î¿ä")&& !intro.equals("")) {
+			throw new IntroFormatException();
+		}
+
 		this.intro = intro;
 	}
 
@@ -79,18 +85,16 @@ public abstract class Menu implements MenuInput {
 	public void setIng(String ing) {
 		this.ing = ing;
 	}
-	
 
 	public String getOrigin() {
 		return origin;
 	}
-	
+
 	public void setOrigin(String origin) {
 		this.origin= origin;
 	}
 
 	public abstract void printInfo(); 
-	
 
 	public void setMenuName( Scanner input) {
 		System.out.print("Menu Name : ");
@@ -106,9 +110,17 @@ public abstract class Menu implements MenuInput {
 	}
 
 	public void setMenuIntro(Scanner input) {
-		System.out.print("Menu Introduce : ");
-		String intro = input.nextLine();
-		this.setIntro(intro);
+		String intro = " ";
+		while(!intro.contains("¸ÀÀÖ¾î¿ä")) {
+			System.out.print("Menu Introduce : ");
+			intro = input.nextLine();
+			try {
+				this.setIntro(intro);
+			}
+			catch (IntroFormatException e) {
+				System.out.println("Incorrect Intro Format. put the intro that contailns ¸ÀÀÕ¾î¿ä");	
+			}
+		}
 	}
 
 	public void setMenuIng(Scanner input) {
@@ -116,13 +128,13 @@ public abstract class Menu implements MenuInput {
 		String ing = input.nextLine();	
 		this.setIng(ing);
 	}
-	
+
 	public void setMenuOrigin(Scanner input) {
 		System.out.print("ingredient Origin : ");
 		String origin = input.nextLine();
 		this.setOrigin(origin);
 	}
-	
+
 	public String getKindString() {
 		String skind = "none";
 		switch(this.kind) {

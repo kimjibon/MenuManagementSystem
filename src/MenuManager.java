@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class MenuManager {
@@ -6,25 +7,39 @@ public class MenuManager {
 		Scanner input = new Scanner(System.in);
 		Menumanager2 menumanager2 = new Menumanager2(input);	
 
-		int num = 8;
+		selectMenu(input, menumanager2);
+	}
+
+
+	public static void selectMenu(Scanner input,Menumanager2 menumanager2){
+		int num = -1;
 		while (num !=5){
-			showMenu();
-			num = input.nextInt();
-			switch(num) {
-			case 1:
-				menumanager2.addMenu();
-				break;
-			case 2:
-				menumanager2.deleteMenu();
-				break;
-			case 3:
-				menumanager2.editMenu();
-				break;
-			case 4:
-				menumanager2.viewMenu();
-				break;
-			default:
-				continue;
+			try {
+				showMenu();
+				num = input.nextInt();
+				switch(num) {
+				case 1:
+					menumanager2.addMenu();
+					break;
+				case 2:
+					menumanager2.deleteMenu();
+					break;
+				case 3:
+					menumanager2.editMenu();
+					break;
+				case 4:
+					menumanager2.viewMenu();
+					break;
+				default:
+					continue;
+				}
+			}
+			catch(InputMismatchException e) {
+				System.out.println("Please put an integer between 1 and 5!");
+				if (input.hasNext()) {
+					input.next();
+				}
+				num = -1;
 			}
 		}
 	}
