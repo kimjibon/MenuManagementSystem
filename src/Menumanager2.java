@@ -1,15 +1,20 @@
 import Menu.HotNoodle;
 import Menu.ColdNoodle;
 import Menu.Cutlet;
-import Menu.Menu;
 import Menu.MenuInput;
 import Menu.MenuKind;
 
+import java.io.Serializable;
 import java.util.*;
 
-public class Menumanager2 {	
+public class Menumanager2 implements Serializable{	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4760513140972509130L;
+	
 	ArrayList<MenuInput> menus = new ArrayList<MenuInput>();
-	Scanner input;
+	transient Scanner input;
 
 	Menumanager2(Scanner input){
 		this.input = input;

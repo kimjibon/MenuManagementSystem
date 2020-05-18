@@ -1,12 +1,18 @@
 package Menu;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
 import exception.IntroFormatException;
 
-public abstract class Menu implements MenuInput {
+public abstract class Menu implements MenuInput, Serializable {
 
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3365367620358141360L;
+	
 	protected MenuKind kind= MenuKind.Coldnoodle;
 	protected String name;
 	protected int price;
