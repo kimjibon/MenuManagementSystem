@@ -4,7 +4,5 @@ public enum MenuKind {
 	Coldnoodle,
 	Hotnoodle,
 	Rice,
-	Cutlet
-
-	
+	Cutlet	
 }
