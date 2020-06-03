@@ -3,9 +3,11 @@ package gui;
 import java.awt.*;
 import javax.swing.*;
 
-public class MenuAdder extends JFrame {
+public class MenuAdder extends JPanel {
+	WindowFrame frame;
 	
-	public MenuAdder() {
+	public MenuAdder(WindowFrame frame) {
+		this.frame = frame;
 		JPanel panel = new JPanel();
 		panel.setLayout(new SpringLayout());
 		
@@ -41,13 +43,8 @@ public class MenuAdder extends JFrame {
 		SpringUtilities.makeCompactGrid(panel, 5, 2, 6, 6, 6, 6);
 		
 		
-		this.setSize(400,400);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setContentPane(panel);
-		this.setVisible(true);
-		
-	
-	
+		this.add(panel);
+		this.setVisible(true);	
 	}
 
 }
