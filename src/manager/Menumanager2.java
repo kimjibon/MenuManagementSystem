@@ -1,4 +1,6 @@
+package manager;
 import Menu.HotNoodle;
+import Menu.Menu;
 import Menu.ColdNoodle;
 import Menu.Cutlet;
 import Menu.MenuInput;
@@ -130,7 +132,15 @@ public class Menumanager2 implements Serializable{
 		}
 		System.out.println("Number of menu : "+ menus.size());
 	}
-
+	
+	public int size() {
+		return menus.size();
+	}
+	
+	public MenuInput get(int index) {
+		return (Menu) menus.get(index);
+	}
+	
 	public void showEditMenu() {
 		System.out.println(" ** Menu Info Edit Menu ** ");
 		System.out.println(" 1. Edit Menuname");

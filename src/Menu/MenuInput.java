@@ -10,9 +10,15 @@ public interface MenuInput {
 	
 	public String getName();
 	
+	public String getPrice();
+	
+	public String getIntro();
+	
+	public String getIng();
+	
 	public void setName(String name);
 	
-	public void setPrice(int price);
+	public void setPrice(String price);
 	
 	public void setIntro(String intro) throws IntroFormatException;
 	

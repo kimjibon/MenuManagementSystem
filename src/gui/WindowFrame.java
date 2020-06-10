@@ -2,22 +2,29 @@ package gui;
 
 import javax.swing.*;
 
+import manager.Menumanager2;
+
 public class WindowFrame extends JFrame{
 
+	Menumanager2 menumanager2;
 	MenuSelection menuselection ;
-	MenuAdder menuadder ;
+	MenuAdder menuadder ; 
 	MenuViewer menuviewer ;
+
 			
-	public WindowFrame() {	
-		this.menuselection = new MenuSelection(this);
-		this.menuadder = new MenuAdder(this);
-		this.menuviewer = new MenuViewer(this);
-		
+	public WindowFrame(Menumanager2 menumanager2) {	
 		this.setSize(500,300);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setTitle("My Frame");
+		
+		this.menumanager2= menumanager2;
+		menuselection = new MenuSelection(this);
+		menuadder = new MenuAdder(this);
+		menuviewer = new MenuViewer(this, this.menumanager2);
+
+		
 		
 		this.setupPanel(menuselection);
-		
 		this.setVisible(true);
 	}
 	

@@ -15,7 +15,7 @@ public abstract class Menu implements MenuInput, Serializable {
 	
 	protected MenuKind kind= MenuKind.Coldnoodle;
 	protected String name;
-	protected int price;
+	protected String price;
 	protected String intro;
 	protected String ing;
 	protected String origin;
@@ -29,19 +29,19 @@ public abstract class Menu implements MenuInput, Serializable {
 
 	}
 
-	public Menu(String name, int price) {
+	public Menu(String name, String price) {
 		this.name= name;
 		this.price = price;
 
 	}
-	public Menu (String name, int price, String intro, String ing) {
+	public Menu (String name, String price, String intro, String ing) {
 		this.name = name;
 		this.price = price;
 		this.intro = intro;
 		this.ing = ing;
 	}
 
-	public Menu (MenuKind kind, String name, int price, String intro, String ing) {
+	public Menu (MenuKind kind, String name, String price, String intro, String ing) {
 		this.kind=kind;
 		this.name = name;
 		this.price = price;
@@ -64,11 +64,11 @@ public abstract class Menu implements MenuInput, Serializable {
 		this.name = name;
 	}
 
-	public int getPrice() {
+	public String getPrice() {
 		return price;
 	}
 
-	public void setPrice(int price) {
+	public void setPrice(String price) {
 		this.price = price;
 	}
 
@@ -110,28 +110,27 @@ public abstract class Menu implements MenuInput, Serializable {
 
 	public void setMenuPrice(Scanner input) {
 		System.out.print("Menu Price : ");
-		int price = input.nextInt();
+		String price = input.next();
 		this.setPrice(price);
-		input.nextLine();
 	}
 
 	public void setMenuIntro(Scanner input) {
 		String intro = " ";
 		while(!intro.contains("¸ÀÀÖ¾î¿ä")) {
 			System.out.print("Menu Introduce : ");
-			intro = input.nextLine();
+			intro = input.next();
 			try {
 				this.setIntro(intro);
 			}
 			catch (IntroFormatException e) {
-				System.out.println("Incorrect Intro Format. put the intro that contailns ¸ÀÀÕ¾î¿ä");	
+				System.out.println("Incorrect Intro Format. put the intro that contailns ¸ÀÀÖ¾î¿ä");	
 			}
 		}
 	}
 
 	public void setMenuIng(Scanner input) {
 		System.out.print("ingredient : ");
-		String ing = input.nextLine();	
+		String ing = input.next();	
 		this.setIng(ing);
 	}
 
